@@ -44,9 +44,9 @@ using (var scope = app.Services.CreateScope())
                 throw;
 
             Thread.Sleep(3000);
+            }
         }
     }
-
 
     if (!db.Tickets.Any())
     {
