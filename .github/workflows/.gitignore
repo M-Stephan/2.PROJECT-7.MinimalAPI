@@ -1,0 +1,50 @@
+# Visual Studio / .NET
+bin/
+obj/
+*.user
+*.suo
+*.vs/
+*.log
+*.pdb
+*.cache
+*.dbmdl
+*.bak
+*.zip
+*.tar.gz
+
+# Build output
+out/
+publish/
+publish/
+
+# Docker
+**/Dockerfile*
+**/docker-compose*.yml
+
+# VS Code
+.vscode/
+
+# User-specific files
+*.userosscache
+*.userprefs
+
+# Secrets
+secrets.json
+
+# Logs
+*.log
+
+# Others
+*.DS_Store
+
+# NuGet packages
+*.nupkg
+packages/
+.nuget/
+
+# Rider IDE
+.idea/
+
+# JetBrains Rider local history
+.idea/.idea.Lo
+.env

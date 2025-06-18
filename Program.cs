@@ -3,37 +3,81 @@ using Solution.Endpoints;
 using Scalar.AspNetCore;
 using Solution.Users;
 using Solution.Tickets; 
+using Microsoft.EntityFrameworkCore;
+using Solution.Data;
 
 // -- Build ASP.NET environnement --
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
+
+// -- Add DbContext with the connection string --
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 var app = builder.Build();
 
-// -- Use scalar reference in the project is in development --
+// -- Use scalar reference in the project if is in development --
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
 
-// -- Users --
-User user1 = new(1, "John", "Johndoe@domain.be");
-User user2 = new(2, "Hector", "Hector@domain.be");
-User user3 = new(3, "Alice", "alice@domain.be");
-User user4 = new(4, "Sophie", "sophie@domain.be");
+// -- Initialize DbContext and apply migrations --
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var retryCount = 0;
+    const int maxRetries = 10;
 
-// -- List of all users --
-List<User> users = new List<User> { user1, user2, user3, user4 };
-app.MapUserEndpoints(users);
+    while (retryCount < maxRetries)
+    {
+        try
+        {
+            db.Database.Migrate();
+            break; // succès, on sort
+        }
+        catch (Exception ex)
+        {
+            retryCount++;
+            Console.WriteLine($"⏳ Waiting for SQL Server... ({retryCount}/{maxRetries})");
 
-// -- Tickets --
-Ticket ticket1 = new(1, "Can't connect to PC", "User cannot log in to Windows.", user1.Id);
-Ticket ticket2 = new(2, "Outlook crash", "Outlook closes instantly after launch.", user2.Id);
-Ticket ticket3 = new(3, "Printer not working", "The printer in room 201 doesn't respond.", user3.Id);
+            if (retryCount == maxRetries)
+            {
+                Console.WriteLine("❌ Could not connect to the database.");
+                throw; // on laisse planter
+            }
 
-// -- List of all tickets --
-List<Ticket> tickets = new List<Ticket> { ticket1, ticket2, ticket3 };
-app.MapTicketEndpoints(tickets); // Register the endpoints
+            Thread.Sleep(3000); // attend 3 secondes
+        }
+    }
 
-// -- Run doing stay to the end --
+
+    if (!db.Tickets.Any())
+    {
+        db.Tickets.AddRange(
+            new Ticket { Title = "Can't connect to PC", Description = "User cannot log in to Windows.", UserId = 1, Status = "To do!", CreatedAt = DateTime.Now },
+            new Ticket { Title = "Outlook crash", Description = "Outlook closes instantly after launch.", UserId = 2, Status = "To do!", CreatedAt = DateTime.Now },
+            new Ticket { Title = "Printer not working", Description = "The printer in room 201 doesn't respond.", UserId = 3, Status = "To do!", CreatedAt = DateTime.Now }
+        );
+    }
+
+    if (!db.Users.Any())
+    {
+        db.Users.AddRange(
+            new User { Name = "John", Email = "Johndoe@domain.be" },
+            new User { Name = "Hector", Email = "Hector@domain.be" },
+            new User { Name = "Alice", Email = "alice@domain.be" },
+            new User { Name = "Sophie", Email = "sophie@domain.be" }
+        );
+    }
+
+    db.SaveChanges();
+}
+
+
+app.MapUserEndpoints();
+
+app.MapTicketEndpoints();
+
 app.Run();

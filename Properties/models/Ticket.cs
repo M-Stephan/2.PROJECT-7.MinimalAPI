@@ -12,6 +12,9 @@ namespace Solution.Tickets
         public string? Status { get; set; }
         public int UserId { get; set; }
         public DateTime CreatedAt { get; set; }
+        
+        // necessary empty constructor for EF Core
+        public Ticket() { }
 
         public Ticket(int id, string title, string description, int userId)
         {

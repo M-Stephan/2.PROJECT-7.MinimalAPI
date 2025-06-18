@@ -1,56 +1,69 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Solution.Tickets;
+using Solution.Data;
 
 namespace Solution.Endpoints;
 
 public static class TicketEndpoints
 {
-    public static void MapTicketEndpoints(this WebApplication appTicket, List<Ticket> tickets)
+    public static void MapTicketEndpoints(this WebApplication app)
     {
-        appTicket.MapGet("/tickets", () =>
+        // GET all tickets
+        app.MapGet("/tickets", async (ApplicationDbContext db) =>
         {
-            return !tickets.Any() ? Results.NotFound("No Tickets Found") : Results.Ok(tickets);
+            var tickets = await db.Tickets.ToListAsync();
+            return tickets.Count == 0 ? Results.NotFound("No Tickets Found") : Results.Ok(tickets);
         });
 
-        appTicket.MapGet("/ticket/{id}", (int id) =>
+        // GET ticket by id
+        app.MapGet("/ticket/{id:int}", async (int id, ApplicationDbContext db) =>
         {
-            Ticket? ticket = tickets.FirstOrDefault(p => p.Id == id);
+            var ticket = await db.Tickets.FindAsync(id);
             return ticket == null ? Results.NotFound("Ticket Not Found") : Results.Ok(ticket);
         });
 
-        appTicket.MapPost("/ticket", (Ticket ticket) =>
+        // POST create ticket
+        app.MapPost("/ticket", async (Ticket ticket, ApplicationDbContext db) =>
         {
             if (string.IsNullOrWhiteSpace(ticket.Title) || string.IsNullOrWhiteSpace(ticket.Description))
                 return Results.BadRequest("Title and Description are required");
 
-            tickets.Add(ticket);
+            ticket.Status = "To do!"; // par défaut
+            ticket.CreatedAt = DateTime.Now;
+
+            db.Tickets.Add(ticket);
+            await db.SaveChangesAsync();
+
             return Results.Created($"/ticket/{ticket.Id}", ticket);
         });
 
-        appTicket.MapPut("/ticket/{id}", (int id, Ticket updatedTicket) =>
+        // PUT update ticket
+        app.MapPut("/ticket/{id:int}", async (int id, Ticket updatedTicket, ApplicationDbContext db) =>
         {
             if (string.IsNullOrWhiteSpace(updatedTicket.Title) || string.IsNullOrWhiteSpace(updatedTicket.Description))
                 return Results.BadRequest("Title and Description are required");
 
-            var ticket = tickets.FirstOrDefault(t => t.Id == id);
+            var ticket = await db.Tickets.FindAsync(id);
             if (ticket == null) return Results.NotFound("Ticket Not Found");
 
             ticket.Title = updatedTicket.Title;
             ticket.Description = updatedTicket.Description;
             ticket.Status = updatedTicket.Status;
 
+            await db.SaveChangesAsync();
             return Results.Ok(ticket);
         });
 
-
-        appTicket.MapDelete("/ticket/{id}", (int id) =>
+        // DELETE ticket
+        app.MapDelete("/ticket/{id:int}", async (int id, ApplicationDbContext db) =>
         {
-            var ticket = tickets.FirstOrDefault(t => t.Id == id);
+            var ticket = await db.Tickets.FindAsync(id);
             if (ticket == null) return Results.NotFound("Ticket Not Found");
 
-            tickets.Remove(ticket);
+            db.Tickets.Remove(ticket);
+            await db.SaveChangesAsync();
             return Results.Ok($"Ticket {id} deleted");
         });
     }
