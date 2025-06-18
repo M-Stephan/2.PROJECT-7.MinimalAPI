@@ -64,5 +64,4 @@ docker-compose up -d
   - `http://localhost:5000/user/4`
   - `http://localhost:5000/ticket/2`
 
-- OpenAPI JSON: `http://localhost:5000/openapi`
 - Scalar UI: `http://localhost:5000/scalar`
