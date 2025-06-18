@@ -1,4 +1,4 @@
-namespace Solution.User
+namespace Solution.Users
 {
     public class User
     {
@@ -11,11 +11,6 @@ namespace Solution.User
             Id = id;
             Name = name;
             Email = email;
-        }
-
-        public void GetName()
-        {
-            Console.WriteLine($"Id: {Id}\nName: {Name}\nEmail: {Email}");
         }
     }
 }

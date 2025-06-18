@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Solution.Ticket
+namespace Solution.Tickets
 {
     public class Ticket
     {
@@ -10,6 +10,17 @@ namespace Solution.Ticket
         public string? Title { get; set; }
         public string? Description { get; set; }
         public string? Status { get; set; }
-        public DateTime Create_at { get; set; }
+        public int UserId { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public Ticket(int id, string title, string description, int userId)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            Status = "To do!";
+            UserId = userId;
+            CreatedAt = DateTime.Now;
+        }
     }
 }

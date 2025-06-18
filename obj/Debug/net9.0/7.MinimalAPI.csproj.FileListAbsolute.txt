@@ -32,3 +32,4 @@ C:\Users\marti\Desktop\7.MinimalAPI\obj\Debug\net9.0\refint\7.MinimalAPI.dll
 C:\Users\marti\Desktop\7.MinimalAPI\obj\Debug\net9.0\7.MinimalAPI.pdb
 C:\Users\marti\Desktop\7.MinimalAPI\obj\Debug\net9.0\7.MinimalAPI.genruntimeconfig.cache
 C:\Users\marti\Desktop\7.MinimalAPI\obj\Debug\net9.0\ref\7.MinimalAPI.dll
+C:\Users\marti\Desktop\7.MinimalAPI\obj\Debug\net9.0\7.MinimalAPI.sourcelink.json

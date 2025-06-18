@@ -1,9 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\bin",
+    "\\obj",
     "\\Properties",
-    "\\Properties\\models"
+    "\\Properties\\Endpoints",
+    "\\Properties\\Models"
   ],
-  "SelectedNode": "\\Program.cs",
+  "SelectedNode": "\\Properties",
   "PreviewInSolutionExplorer": false
 }
