@@ -44,3 +44,25 @@ Examples are provided in `requests.http` file.
 └── 📄7.MinimalAPI.http
 ```
 
+## 🐳 Run the API using Docker (no need to clone)
+
+If you just want to **run the project without cloning or downloading the full repository**, you can do it directly via Docker using the following commands:
+
+```bash
+curl -O https://raw.githubusercontent.com/M-Stephan/2.PROJECT-7.MinimalAPI/main/docker-compose.yml
+docker-compose up -d
+```
+
+- ✅ This will:
+  - Download the docker-compose.yml file from the GitHub repository
+  - Pull the required images from Docker Hub (API + SQL Server)
+  - Launch the containers in the background
+
+- 🔗 Once started, the API will be available at:
+  - `http://localhost:5000/users`
+  - `http://localhost:5000/tickets`
+  - `http://localhost:5000/user/4`
+  - `http://localhost:5000/ticket/2`
+
+- OpenAPI JSON: `http://localhost:5000/openapi`
+- Scalar UI: `http://localhost:5000/scalar`

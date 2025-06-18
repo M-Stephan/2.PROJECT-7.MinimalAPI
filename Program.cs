@@ -16,12 +16,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
-// -- Use scalar reference in the project if is in development --
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.MapScalarApiReference();
-}
+app.MapOpenApi();
+app.MapScalarApiReference();
 
 // -- Initialize DbContext and apply migrations --
 using (var scope = app.Services.CreateScope())
@@ -35,20 +31,19 @@ using (var scope = app.Services.CreateScope())
         try
         {
             db.Database.Migrate();
-            break; // succès, on sort
+            break;
         }
         catch (Exception ex)
         {
             retryCount++;
-            Console.WriteLine($"⏳ Waiting for SQL Server... ({retryCount}/{maxRetries})");
+            Console.WriteLine($"Waiting for SQL Server... ({retryCount}/{maxRetries})");
 
             if (retryCount == maxRetries)
             {
-                Console.WriteLine("❌ Could not connect to the database.");
-                throw; // on laisse planter
-            }
+                Console.WriteLine("Could not connect to the database.");
+                throw;
 
-            Thread.Sleep(3000); // attend 3 secondes
+            Thread.Sleep(3000);
         }
     }
 
@@ -74,7 +69,6 @@ using (var scope = app.Services.CreateScope())
 
     db.SaveChanges();
 }
-
 
 app.MapUserEndpoints();
 
