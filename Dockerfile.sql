@@ -1,4 +1,0 @@
-FROM mcr.microsoft.com/mssql/server:2022-latest
-ENV SA_PASSWORD=${SA_PASSWORD}
-ENV ACCEPT_EULA=Y
-EXPOSE 1433

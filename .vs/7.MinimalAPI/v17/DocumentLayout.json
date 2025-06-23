@@ -3,6 +3,46 @@
   "WorkspaceRootPath": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:7.MinimalAPI.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Data\\ApplicationDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\ApplicationDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Entities\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entities\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Entities\\Ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entities\\Ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\render.yaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:render.yaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Dockerfile.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Dockerfile.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Endpoints\\UserEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Endpoints\\UserEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Endpoints\\TicketEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Endpoints\\TicketEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:7.MinimalAPI.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
@@ -11,24 +51,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Entities\\Ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entities\\Ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Entities\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entities\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Data\\ApplicationDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Data\\ApplicationDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Migrations\\20250623092246_AddUserTicketRelation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,20 +75,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Endpoints\\UserEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Endpoints\\UserEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Endpoints\\TicketEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Endpoints\\TicketEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\wait-for.sh||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:wait-for.sh||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Dockerfile.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Dockerfile.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -86,59 +102,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "20250623092246_AddUserTicketRelation.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Migrations\\20250623092246_AddUserTicketRelation.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250623092246_AddUserTicketRelation.cs",
-              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Migrations\\20250623092246_AddUserTicketRelation.cs",
-              "RelativeToolTip": "Migrations\\20250623092246_AddUserTicketRelation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T12:20:45.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ApplicationDbContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "RelativeToolTip": "Migrations\\ApplicationDbContextModelSnapshot.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T12:20:32.23Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\.github\\workflows\\.gitignore",
-              "RelativeDocumentMoniker": ".github\\workflows\\.gitignore",
-              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\.github\\workflows\\.gitignore",
-              "RelativeToolTip": ".github\\workflows\\.gitignore",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAADQAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-06-23T12:20:05.138Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": ".dockerignore",
-              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\.dockerignore",
-              "RelativeDocumentMoniker": ".dockerignore",
-              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\.dockerignore",
-              "RelativeToolTip": ".dockerignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-06-23T12:19:51.92Z",
+              "DocumentIndex": 1,
+              "Title": "7.MinimalAPI.csproj",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.csproj",
+              "RelativeDocumentMoniker": "7.MinimalAPI.csproj",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.csproj",
+              "RelativeToolTip": "7.MinimalAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-23T16:15:18.665Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "render.yaml",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\render.yaml",
+              "RelativeDocumentMoniker": "render.yaml",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\render.yaml",
+              "RelativeToolTip": "render.yaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-06-23T16:14:48.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Dockerfile.sql ",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Dockerfile.sql",
+              "RelativeDocumentMoniker": "Dockerfile.sql",
+              "ToolTip": "Dockerfile.sql ",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-06-23T16:14:44.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Entities\\User.cs",
               "RelativeDocumentMoniker": "Entities\\User.cs",
@@ -151,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
@@ -177,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": ".env",
               "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\.env",
               "RelativeDocumentMoniker": ".env",
@@ -185,25 +186,24 @@
               "RelativeToolTip": ".env",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-06-23T12:12:14.548Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-23T12:12:14.548Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Dockerfile",
               "RelativeDocumentMoniker": "Dockerfile",
               "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Dockerfile",
               "RelativeToolTip": "Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-06-23T12:13:31.15Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -211,12 +211,11 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T12:17:52.927Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-23T12:17:52.927Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "7.MinimalAPI.http",
               "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.http",
               "RelativeDocumentMoniker": "7.MinimalAPI.http",
@@ -229,46 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-23T12:19:45.228Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UserEndpoints.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Endpoints\\UserEndpoints.cs",
-              "RelativeDocumentMoniker": "Endpoints\\UserEndpoints.cs",
-              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Endpoints\\UserEndpoints.cs",
-              "RelativeToolTip": "Endpoints\\UserEndpoints.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T12:19:28.574Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "wait-for.sh",
-              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\wait-for.sh",
-              "RelativeDocumentMoniker": "wait-for.sh",
-              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\wait-for.sh",
-              "RelativeToolTip": "wait-for.sh",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|",
-              "WhenOpened": "2025-06-23T12:14:42.059Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 0,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",
@@ -281,16 +241,101 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
+              "Title": ".dockerignore",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\.dockerignore",
+              "RelativeDocumentMoniker": ".dockerignore",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\.dockerignore",
+              "RelativeToolTip": ".dockerignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-23T12:19:51.92Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\.github\\workflows\\.gitignore",
+              "RelativeDocumentMoniker": ".github\\workflows\\.gitignore",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\.github\\workflows\\.gitignore",
+              "RelativeToolTip": ".github\\workflows\\.gitignore",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-23T12:20:05.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "TicketEndpoints.cs",
               "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Endpoints\\TicketEndpoints.cs",
               "RelativeDocumentMoniker": "Endpoints\\TicketEndpoints.cs",
               "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Endpoints\\TicketEndpoints.cs",
               "RelativeToolTip": "Endpoints\\TicketEndpoints.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-23T12:03:17.201Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserEndpoints.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Endpoints\\UserEndpoints.cs",
+              "RelativeDocumentMoniker": "Endpoints\\UserEndpoints.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Endpoints\\UserEndpoints.cs",
+              "RelativeToolTip": "Endpoints\\UserEndpoints.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA2wEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T12:19:28.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ApplicationDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T12:20:32.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "20250623092246_AddUserTicketRelation.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Migrations\\20250623092246_AddUserTicketRelation.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250623092246_AddUserTicketRelation.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Migrations\\20250623092246_AddUserTicketRelation.cs",
+              "RelativeToolTip": "Migrations\\20250623092246_AddUserTicketRelation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T12:20:45.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-23T12:19:45.228Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "wait-for.sh",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\wait-for.sh",
+              "RelativeDocumentMoniker": "wait-for.sh",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\wait-for.sh",
+              "RelativeToolTip": "wait-for.sh",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|",
+              "WhenOpened": "2025-06-23T12:14:42.059Z"
             }
           ]
         }
