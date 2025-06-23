@@ -106,7 +106,7 @@ docker-compose up -d
 ## 💬 Want to test the live API?
 
 The API is running at:  
-🌐 `http://217.145.72.16:5000/scalar`
+🌐 [→ Click Here ←](http://217.145.72.16:5000/scalar)
 
 > For security reasons, contact the author for access please.
 
