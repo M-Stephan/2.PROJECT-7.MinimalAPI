@@ -54,35 +54,38 @@ After cloning this repository, follow these steps to run the API properly:
 
 5. Once running, use Swagger UI at `http://localhost:5000/swagger` (or `/scalar` if Scalar UI is enabled) to explore and test the endpoints.
 
+
+6. Run the Docker environment:
+```bash
+docker-compose up -d
+```
 ---
 
 ## 📂 Project Structure
 ```plaintext
 📁7.MinimalAPI
+├── 📁.github/workflows
 ├── 📁bin/
 ├── 📁obj/
 ├── 📁Properties/
+├── 📁Data/
+│        ├── 📄ApplicationDbContext.cs
 ├── 📁Endpoints/
-│         ├── 📄TicketEndpoints.cs
-│         └── 📄UserEndpoints.cs
-├── 📁 Models/
-│         ├── 📄Ticket.cs
-│         └── 📄User.cs
+│        ├── 📄TicketEndpoints.cs
+│        └── 📄UserEndpoints.cs
+├── 📁Entities/
+│        ├── 📄Ticket.cs
+│        └── 📄User.cs
 ├── 📄appsettings.Development.json
 ├── 📄appsettings.json
 ├── 📄launchSettings.json
 ├── 📄Program.cs
 ├── 📄README.md
 ├── 📄7.MinimalAPI.csproj
-└── 📄7.MinimalAPI.http
-```
-
-## 🐳 Run the API using Docker (no need to clone)
-
-If you just want to **run the project without cloning or downloading the full repository**, you can do it directly via Docker using the following commands:
-
-```bash
-docker-compose up -d
+├── 📄7.MinimalAPI.http
+├── 📄Dockerfile
+├── 📄docker-compose.yml
+└── 📄wait-for.sh
 ```
 
 - ✅ This will:
@@ -97,4 +100,18 @@ docker-compose up -d
   - `http://localhost:5000/ticket/2`
 
 - Scalar UI: `http://localhost:5000/scalar`
+
+---
+
+## 💬 Want to test the live API?
+
+The API is running at:  
+🌐 `http://217.145.72.16:5000/scalar`
+
+> For security reasons, contact the author for access please.
+
+---
+
+## Contact
+- Stephan .M : martin.stephan9218@gmail.com
 
