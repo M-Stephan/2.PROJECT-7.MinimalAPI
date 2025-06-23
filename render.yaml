@@ -1,0 +1,20 @@
+services:
+  - name: sqlserver
+    type: web
+    env: docker
+    dockerfilePath: Dockerfile.sql
+    plan: free
+    envVars:
+      - key: SA_PASSWORD
+        sync: false
+      - key: ACCEPT_EULA
+        value: "Y"
+
+  - name: api-dotnet
+    type: web
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    envVars:
+      - key: ConnectionStrings__DefaultConnection
+        sync: false
