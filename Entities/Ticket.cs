@@ -1,6 +1,7 @@
 // Entities > Ticket.cs
 using System;
 using System.Collections.Generic;
+using Solution.Users;
 
 namespace Solution.Tickets
 {
@@ -11,6 +12,7 @@ namespace Solution.Tickets
         public string? Description { get; set; }
         public string? Status { get; set; }
         public int UserId { get; set; }
+        public User? User { get; set; }
         public DateTime CreatedAt { get; set; }
         
         // necessary empty constructor for EF Core
@@ -21,7 +23,7 @@ namespace Solution.Tickets
             Id = id;
             Title = title;
             Description = description;
-            Status = "To do!";
+            Status = "Open";
             UserId = userId;
             CreatedAt = DateTime.Now;
         }

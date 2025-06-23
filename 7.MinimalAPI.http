@@ -5,7 +5,7 @@ Accept: application/json
 
 ###
 
-GET {{_7.MinimalAPI_HostAddress}}/user/4
+GET {{_7.MinimalAPI_HostAddress}}/user/2
 
 ###
 
@@ -24,14 +24,13 @@ POST {{_7.MinimalAPI_HostAddress}}/user
 Content-Type: application/json
 
 {
-  "id": 5,
   "name": "Charlie",
   "email": "charlie@domain.be"
 }
 
 ###
 
-DELETE {{_7.MinimalAPI_HostAddress}}/user/5
+DELETE {{_7.MinimalAPI_HostAddress}}/user/4
 
 ### 
 
@@ -50,7 +49,7 @@ Content-Type: application/json
   "id": 2,
   "title": "Outlook crash",
   "description": "Outlook closes instantly after launch.",
-  "status": "Fixed!",
+  "status": "Fixed",
   "userId": 2,
   "createdAt": "2025-06-18T09:38:38.2659611+02:00"
 }
@@ -61,16 +60,24 @@ POST {{_7.MinimalAPI_HostAddress}}/ticket
 Content-Type: application/json
 
 {
-  "id": 4,
-  "title": "DeadLine",
-  "description": "The software will be finished for 18/06/25 at 17.00 PM",
-  "status": "Not finished",
-  "userId": 4,
-  "createdAt": "2025-06-18T09:48:28.2659611+02:00"
+  "title": "DeadLine Frontend",
+  "description": "The software frontend will be finished for 16/07/25 at 17.00 PM",
+  "userId": 2
 }
 
 ###
 
-DELETE {{_7.MinimalAPI_HostAddress}}/ticket/3
+POST {{_7.MinimalAPI_HostAddress}}/ticket
+Content-Type: application/json
+
+{
+  "title": "DeadLine Backend",
+  "description": "The software backend will be finished for 18/07/25 at 17.00 PM",
+  "userId": 2
+}
+
+###
+
+DELETE {{_7.MinimalAPI_HostAddress}}/ticket/1
 
 ###

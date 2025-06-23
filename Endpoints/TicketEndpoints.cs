@@ -30,7 +30,7 @@ public static class TicketEndpoints
             if (string.IsNullOrWhiteSpace(ticket.Title) || string.IsNullOrWhiteSpace(ticket.Description))
                 return Results.BadRequest("Title and Description are required");
 
-            ticket.Status = "To do!"; // par défaut
+            ticket.Status = "Open"; // par défaut
             ticket.CreatedAt = DateTime.Now;
 
             db.Tickets.Add(ticket);

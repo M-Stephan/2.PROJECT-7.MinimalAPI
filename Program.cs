@@ -2,7 +2,7 @@
 using Solution.Endpoints;
 using Scalar.AspNetCore;
 using Solution.Users;
-using Solution.Tickets; 
+using Solution.Tickets;
 using Microsoft.EntityFrameworkCore;
 using Solution.Data;
 
@@ -40,23 +40,15 @@ using (var scope = app.Services.CreateScope())
 
             if (retryCount == maxRetries)
             {
-                Console.WriteLine("Could not connect to the database.");
+                Console.WriteLine($"SCRIPT ERROR: {ex}");
                 throw;
+            }
 
             Thread.Sleep(3000);
-            }
         }
     }
 
-    if (!db.Tickets.Any())
-    {
-        db.Tickets.AddRange(
-            new Ticket { Title = "Can't connect to PC", Description = "User cannot log in to Windows.", UserId = 1, Status = "To do!", CreatedAt = DateTime.Now },
-            new Ticket { Title = "Outlook crash", Description = "Outlook closes instantly after launch.", UserId = 2, Status = "To do!", CreatedAt = DateTime.Now },
-            new Ticket { Title = "Printer not working", Description = "The printer in room 201 doesn't respond.", UserId = 3, Status = "To do!", CreatedAt = DateTime.Now }
-        );
-    }
-
+    // Seed users si la table Users est vide
     if (!db.Users.Any())
     {
         db.Users.AddRange(
@@ -65,13 +57,28 @@ using (var scope = app.Services.CreateScope())
             new User { Name = "Alice", Email = "alice@domain.be" },
             new User { Name = "Sophie", Email = "sophie@domain.be" }
         );
+        db.SaveChanges(); // sauvegarde pour générer les Ids
     }
 
-    db.SaveChanges();
+    // Seed tickets si la table Tickets est vide
+    if (!db.Tickets.Any())
+    {
+        // On récupère les vrais Id des utilisateurs
+        var john = db.Users.First(u => u.Name == "John");
+        var hector = db.Users.First(u => u.Name == "Hector");
+        var alice = db.Users.First(u => u.Name == "Alice");
+
+        db.Tickets.AddRange(
+            new Ticket { Title = "Can't connect to PC", Description = "User cannot log in to Windows.", UserId = john.Id, Status = "To do!", CreatedAt = DateTime.Now },
+            new Ticket { Title = "Outlook crash", Description = "Outlook closes instantly after launch.", UserId = hector.Id, Status = "To do!", CreatedAt = DateTime.Now },
+            new Ticket { Title = "Printer not working", Description = "The printer in room 201 doesn't respond.", UserId = alice.Id, Status = "To do!", CreatedAt = DateTime.Now }
+        );
+        db.SaveChanges();
+    }
 }
 
+// **Important** : Mapping des endpoints et démarrage de l’app en dehors du scope
 app.MapUserEndpoints();
-
 app.MapTicketEndpoints();
 
 app.Run();

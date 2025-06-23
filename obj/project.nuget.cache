@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OlNRRwm77w4=",
+  "dgSpecHash": "BKOYAax3VEU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\marti\\Desktop\\BeCode-Campus\\2.PROJECTS\\7.MinimalAPI\\7.MinimalAPI.csproj",
+  "projectFilePath": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marti\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

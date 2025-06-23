@@ -48,3 +48,6 @@ packages/
 # JetBrains Rider local history
 .idea/.idea.Lo
 .env
+
+# Too for wait-for.sh
+*.sh

@@ -4783,11 +4783,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marti\\Desktop\\BeCode-Campus\\2.PROJECTS\\7.MinimalAPI\\7.MinimalAPI.csproj",
+      "projectUniqueName": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.csproj",
       "projectName": "7.MinimalAPI",
-      "projectPath": "C:\\Users\\marti\\Desktop\\BeCode-Campus\\2.PROJECTS\\7.MinimalAPI\\7.MinimalAPI.csproj",
+      "projectPath": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.csproj",
       "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marti\\Desktop\\BeCode-Campus\\2.PROJECTS\\7.MinimalAPI\\obj\\",
+      "outputPath": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.github\\workflows"
   ],
-  "SelectedNode": "\\Program.cs",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }
