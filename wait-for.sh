@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 # wait-for.sh
 
 host="$1"

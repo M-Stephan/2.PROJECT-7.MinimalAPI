@@ -5,7 +5,7 @@
 namespace _7.MinimalAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class AddUserTicketRelation : Migration
+    public partial class UpdateUserModel : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

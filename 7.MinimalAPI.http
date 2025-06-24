@@ -14,7 +14,8 @@ Content-Type: application/json
 
 {
   "id": 2,
-  "name": "Hector New",
+  "firstName": "Hector",
+  "lastName": "New",
   "email": "hector.new@domain.be"
 }
 
@@ -24,7 +25,8 @@ POST {{_7.MinimalAPI_HostAddress}}/user
 Content-Type: application/json
 
 {
-  "name": "Charlie",
+  "firstName": "Charlie",
+  "lastName": "Alywell",
   "email": "charlie@domain.be"
 }
 

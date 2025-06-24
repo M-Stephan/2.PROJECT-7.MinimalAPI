@@ -10,9 +10,11 @@ using Solution.Data;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
+// Define context
+string? context = builder.Configuration.GetConnectionString("DefaultConnection");
+
 // -- Add DbContext with the connection string --
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(context));
 
 var app = builder.Build();
 
@@ -52,10 +54,10 @@ using (var scope = app.Services.CreateScope())
     if (!db.Users.Any())
     {
         db.Users.AddRange(
-            new User { Name = "John", Email = "Johndoe@domain.be" },
-            new User { Name = "Hector", Email = "Hector@domain.be" },
-            new User { Name = "Alice", Email = "alice@domain.be" },
-            new User { Name = "Sophie", Email = "sophie@domain.be" }
+            new User { FirstName = "John", LastName = "Doe", Email = "Johndoe@domain.be" },
+            new User { FirstName = "Hector", LastName = "Lastor", Email = "Hector@domain.be" },
+            new User { FirstName = "Alice", LastName = "Gretchen", Email = "alice@domain.be" },
+            new User { FirstName = "Sophie", LastName = "Clapton", Email = "sophie@domain.be" }
         );
         db.SaveChanges(); // sauvegarde pour générer les Ids
     }
@@ -64,14 +66,14 @@ using (var scope = app.Services.CreateScope())
     if (!db.Tickets.Any())
     {
         // On récupère les vrais Id des utilisateurs
-        var john = db.Users.First(u => u.Name == "John");
-        var hector = db.Users.First(u => u.Name == "Hector");
-        var alice = db.Users.First(u => u.Name == "Alice");
+        var john = db.Users.First(u => u.FirstName == "John");
+        var hector = db.Users.First(u => u.FirstName == "Hector");
+        var alice = db.Users.First(u => u.FirstName == "Alice");
 
         db.Tickets.AddRange(
-            new Ticket { Title = "Can't connect to PC", Description = "User cannot log in to Windows.", UserId = john.Id, Status = "To do!", CreatedAt = DateTime.Now },
-            new Ticket { Title = "Outlook crash", Description = "Outlook closes instantly after launch.", UserId = hector.Id, Status = "To do!", CreatedAt = DateTime.Now },
-            new Ticket { Title = "Printer not working", Description = "The printer in room 201 doesn't respond.", UserId = alice.Id, Status = "To do!", CreatedAt = DateTime.Now }
+            new Ticket { Title = "Can't connect to PC", Description = "User cannot log in to Windows.", UserId = john.Id, Status = "Open", CreatedAt = DateTime.Now },
+            new Ticket { Title = "Outlook crash", Description = "Outlook closes instantly after launch.", UserId = hector.Id, Status = "Open", CreatedAt = DateTime.Now },
+            new Ticket { Title = "Printer not working", Description = "The printer in room 201 doesn't respond.", UserId = alice.Id, Status = "Open", CreatedAt = DateTime.Now }
         );
         db.SaveChanges();
     }

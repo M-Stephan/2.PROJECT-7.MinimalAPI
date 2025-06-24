@@ -12,8 +12,8 @@ using Solution.Data;
 namespace _7.MinimalAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250623084957_AddUserTicketRelationship")]
-    partial class AddUserTicketRelationship
+    [Migration("20250624100804_UpdateUserModel")]
+    partial class UpdateUserModel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,9 +67,15 @@ namespace _7.MinimalAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.HasKey("Id");
 

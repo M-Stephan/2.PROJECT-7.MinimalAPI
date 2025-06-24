@@ -1,10 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Data",
-    "\\Endpoints",
-    "\\Entities"
+    "\\.github",
+    "\\.github\\workflows",
+    "\\Data"
   ],
-  "SelectedNode": "\\docker-compose.yml",
+  "SelectedNode": "\\.github\\workflows\\.gitignore",
   "PreviewInSolutionExplorer": false
 }

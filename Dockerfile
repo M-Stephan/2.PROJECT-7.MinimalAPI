@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
-COPY wait-for.sh ./wait-for.sh
-RUN chmod +x ./wait-for.sh
+COPY wait-for.sh /wait-for.sh
+RUN chmod +x /wait-for.sh
 
 COPY *.csproj ./
 RUN dotnet restore
@@ -24,3 +24,4 @@ RUN chmod +x /wait-for.sh
 RUN apt-get update && apt-get install -y netcat-openbsd
 
 ENTRYPOINT ["/wait-for.sh", "db", "dotnet", "7.MinimalAPI.dll"]
+

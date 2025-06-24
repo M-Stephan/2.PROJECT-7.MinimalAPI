@@ -24,8 +24,8 @@ public static class UserEndpoints
 
         app.MapPost("/user", async (User user, ApplicationDbContext db) =>
         {
-            if (string.IsNullOrWhiteSpace(user.Name) || string.IsNullOrWhiteSpace(user.Email))
-                return Results.BadRequest("Name and Email are required");
+            if (string.IsNullOrWhiteSpace(user.FirstName) || string.IsNullOrWhiteSpace(user.LastName) || string.IsNullOrWhiteSpace(user.Email))
+                return Results.BadRequest("Names and Email are required");
             if (!user.Email.Contains("@") || !user.Email.Contains("."))
                 return Results.BadRequest("Email is not valid");
 
@@ -36,15 +36,15 @@ public static class UserEndpoints
 
         app.MapPut("/user/{id:int}", async (int id, User updatedUser, ApplicationDbContext db) =>
         {
-            if (string.IsNullOrWhiteSpace(updatedUser.Name) || string.IsNullOrWhiteSpace(updatedUser.Email))
-                return Results.BadRequest("Name and Email are required");
+            if (string.IsNullOrWhiteSpace(updatedUser.FirstName) || string.IsNullOrWhiteSpace(updatedUser.LastName) || string.IsNullOrWhiteSpace(updatedUser.Email))
+                return Results.BadRequest("Names and Email are required");
             if (!updatedUser.Email.Contains("@") || !updatedUser.Email.Contains("."))
                 return Results.BadRequest("Email is not valid");
 
             var user = await db.Users.FindAsync(id);
             if (user == null) return Results.NotFound("User Not Found");
-
-            user.Name = updatedUser.Name;
+            user.FirstName = updatedUser.FirstName;
+            user.LastName = updatedUser.LastName;
             user.Email = updatedUser.Email;
             await db.SaveChangesAsync();
 
