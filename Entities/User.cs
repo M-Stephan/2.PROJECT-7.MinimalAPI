@@ -11,12 +11,12 @@ namespace Solution.Users
         [Key]
         public int Id { get; set; }
 
-        // Required and max 15 characters
-        [MaxLength(15)]
+        // Required and max 25 characters
+        [MaxLength(25)]
         [Required]
         public string FirstName { get; set; } = string.Empty;
         
-        [MaxLength(15)]
+        [MaxLength(25)]
         [Required]
         public string LastName { get; set; } = string.Empty;
         
