@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Solution.Services;
 using Solution.Users;
+using Solution.DTOs;
+
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -18,7 +20,7 @@ namespace Solution.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetUsers()
         {
             var users = await _userService.GetUsers();
             return users.Any() ? Ok(users) : NotFound("No Users Found");
@@ -32,7 +34,7 @@ namespace Solution.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<User>> CreateUser(User user)
+        public async Task<ActionResult<User>> CreateUser([FromBody] User user)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
