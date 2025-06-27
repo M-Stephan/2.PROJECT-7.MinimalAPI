@@ -3,6 +3,7 @@ using Solution.Tickets;
 using System.ComponentModel.DataAnnotations;
 using System.Security;
 
+
 namespace Solution.Users
 {
     public class User
@@ -26,6 +27,7 @@ namespace Solution.Users
         public string Email { get; set; } = string.Empty;
 
         // List of all tickets of the User
+        
         public List<Ticket>? Tickets { get; set; }
 
         // Empty Constructor for Ef Core

@@ -24,8 +24,6 @@ public class ApplicationDbContext : DbContext
                 .WithOne(t => t.User)
                 .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
-        }); 
+        });
     }
 }
-
-

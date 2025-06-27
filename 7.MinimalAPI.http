@@ -1,15 +1,15 @@
 @_7.MinimalAPI_HostAddress = http://localhost:5000
 
-GET {{_7.MinimalAPI_HostAddress}}/users
+GET {{_7.MinimalAPI_HostAddress}}/api/User
 Accept: application/json
 
 ###
 
-GET {{_7.MinimalAPI_HostAddress}}/user/2
+GET {{_7.MinimalAPI_HostAddress}}/api/User/2
 
 ###
 
-PUT {{_7.MinimalAPI_HostAddress}}/user/2
+PUT {{_7.MinimalAPI_HostAddress}}/api/User/2
 Content-Type: application/json
 
 {
@@ -21,7 +21,7 @@ Content-Type: application/json
 
 ###
 
-POST {{_7.MinimalAPI_HostAddress}}/user
+POST {{_7.MinimalAPI_HostAddress}}/api/User
 Content-Type: application/json
 
 {
@@ -32,19 +32,19 @@ Content-Type: application/json
 
 ###
 
-DELETE {{_7.MinimalAPI_HostAddress}}/user/4
+DELETE {{_7.MinimalAPI_HostAddress}}/api/User/4
 
 ### 
 
-GET {{_7.MinimalAPI_HostAddress}}/tickets
+GET {{_7.MinimalAPI_HostAddress}}/api/Ticket
 
 ###
 
-GET {{_7.MinimalAPI_HostAddress}}/ticket/1
+GET {{_7.MinimalAPI_HostAddress}}/api/Ticket/3
 
 ###
 
-PUT {{_7.MinimalAPI_HostAddress}}/ticket/2
+PUT {{_7.MinimalAPI_HostAddress}}/api/Ticket/2
 Content-Type: application/json
 
 {
@@ -58,7 +58,7 @@ Content-Type: application/json
 
 ###
 
-POST {{_7.MinimalAPI_HostAddress}}/ticket
+POST {{_7.MinimalAPI_HostAddress}}/api/Ticket
 Content-Type: application/json
 
 {
@@ -69,7 +69,7 @@ Content-Type: application/json
 
 ###
 
-POST {{_7.MinimalAPI_HostAddress}}/ticket
+POST {{_7.MinimalAPI_HostAddress}}/api/Ticket
 Content-Type: application/json
 
 {
@@ -80,6 +80,6 @@ Content-Type: application/json
 
 ###
 
-DELETE {{_7.MinimalAPI_HostAddress}}/ticket/1
+DELETE {{_7.MinimalAPI_HostAddress}}/api/Ticket/1
 
 ###

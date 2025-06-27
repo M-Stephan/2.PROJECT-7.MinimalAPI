@@ -12,8 +12,8 @@ using Solution.Data;
 namespace _7.MinimalAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250624100804_UpdateUserModel")]
-    partial class UpdateUserModel
+    [Migration("20250624144137_UpdateTitleLength")]
+    partial class UpdateTitleLength
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,13 +37,18 @@ namespace _7.MinimalAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(230)
+                        .HasColumnType("nvarchar(230)");
 
                     b.Property<string>("Status")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");

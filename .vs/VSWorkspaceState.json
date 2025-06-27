@@ -1,10 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.github",
     "\\.github\\workflows",
-    "\\Data"
+    "\\Controllers",
+    "\\Data",
+    "\\Entities",
+    "\\Migrations",
+    "\\Services"
   ],
-  "SelectedNode": "\\.github\\workflows\\.gitignore",
+  "SelectedNode": "\\7.MinimalAPI.http",
   "PreviewInSolutionExplorer": false
 }

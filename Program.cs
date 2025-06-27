@@ -1,8 +1,9 @@
 ﻿using Solution;
-using Solution.Endpoints;
+using Solution.Controllers;
 using Scalar.AspNetCore;
 using Solution.Users;
 using Solution.Tickets;
+using Solution.Services;
 using Microsoft.EntityFrameworkCore;
 using Solution.Data;
 
@@ -16,6 +17,14 @@ string? context = builder.Configuration.GetConnectionString("DefaultConnection")
 // -- Add DbContext with the connection string --
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(context));
 
+// Important : Register controllers support
+builder.Services.AddControllers();
+
+// Initialize Services
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITicketService, TicketService>();
+
+// Builder
 var app = builder.Build();
 
 app.MapOpenApi();
@@ -79,8 +88,7 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-// **Important** : Mapping des endpoints et démarrage de l’app en dehors du scope
-app.MapUserEndpoints();
-app.MapTicketEndpoints();
+// Map controller endpoints automatically
+app.MapControllers();
 
 app.Run();
