@@ -117,8 +117,10 @@ docker-compose up -d
 
 The API is running at:  
 🌐 [→ Click Here ←](http://217.145.72.16:5000/scalar)
+- You can use this test account to log in and try the app:
+  - Email: `Johndoe@domain.be`
+  - Password: `jd123`
 
-> For security reasons, contact the author for access please.
 
 ---
 
