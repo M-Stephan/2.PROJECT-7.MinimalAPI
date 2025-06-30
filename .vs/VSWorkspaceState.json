@@ -8,6 +8,6 @@
     "\\Entities\\Models",
     "\\Services"
   ],
-  "SelectedNode": "\\Data\\ApplicationDbContext.cs",
+  "SelectedNode": "\\Controllers\\TicketController.cs",
   "PreviewInSolutionExplorer": false
 }

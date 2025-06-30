@@ -68,24 +68,32 @@ docker-compose up -d
 ├── 📁bin/
 ├── 📁obj/
 ├── 📁Properties/
+├── 📁Controllers/
+│        ├── 📄TicketController.cs
+│        └── 📄UserController.cs
 ├── 📁Data/
-│        ├── 📄ApplicationDbContext.cs
-├── 📁Endpoints/
-│        ├── 📄TicketEndpoints.cs
-│        └── 📄UserEndpoints.cs
+│        └── 📄ApplicationDbContext.cs
 ├── 📁Entities/
-│        ├── 📄Ticket.cs
-│        └── 📄User.cs
+│        ├── 📁DTOs/
+│        │        └── 📄UserDTO.cs
+│        └── 📁Models/
+│                 ├── 📄Ticket.cs
+│                 └── 📄User.cs
+├── 📁Services/
+│        ├── 📄ITicketService.cs
+│        ├── 📄IUserService.cs
+│        ├── 📄TicketService.cs
+│        └── 📄UserService.cs
+├── 📁Migrations/
 ├── 📄appsettings.Development.json
 ├── 📄appsettings.json
 ├── 📄launchSettings.json
 ├── 📄Program.cs
-├── 📄README.md
 ├── 📄7.MinimalAPI.csproj
 ├── 📄7.MinimalAPI.http
 ├── 📄Dockerfile
 ├── 📄docker-compose.yml
-└── 📄wait-for.sh
+└── 📄README.md
 ```
 
 - ✅ This will:

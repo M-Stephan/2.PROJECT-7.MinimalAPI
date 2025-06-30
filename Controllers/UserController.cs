@@ -57,5 +57,28 @@ namespace Solution.Controllers
             bool deleted = await _userService.DeleteUser(id);
             return deleted ? Ok($"User {id} deleted") : NotFound("User ID Not Found");
         }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<LoginResponseDTO>> Login([FromBody] LoginRequestDTO loginRequest)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var user = await _userService.Authenticate(loginRequest.Email, loginRequest.Password);
+            if (user == null)
+                return Unauthorized("Invalid email or password");
+
+            var token = _userService.GenerateJwtToken(user);
+
+            var expiration = DateTime.UtcNow.AddHours(2);
+
+            var response = new LoginResponseDTO
+            {
+                Token = token,
+                Expiration = expiration
+            };
+
+            return Ok(response);
+        }
     }
 }

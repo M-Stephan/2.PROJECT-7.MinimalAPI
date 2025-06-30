@@ -12,5 +12,7 @@ namespace Solution.Services
         Task<UserDTO> CreateUser(User user);
         Task<UserDTO?> UpdateUser(int id, User updatedUser);
         Task<bool> DeleteUser(int id);
+        Task<User?> Authenticate(string email, string password);
+        string GenerateJwtToken(User user);
     }
 }
