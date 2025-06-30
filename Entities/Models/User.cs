@@ -30,8 +30,7 @@ namespace Solution.Users
         [Required]
         public string PasswordHash { get; set; } = string.Empty;
 
-        // List of all tickets of the User
-        
+        // List of all tickets of the User        
         public List<Ticket>? Tickets { get; set; }
 
         // Empty Constructor for Ef Core
