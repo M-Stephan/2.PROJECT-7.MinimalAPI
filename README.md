@@ -67,6 +67,7 @@ docker-compose up -d
 ├── 📁.github/workflows
 ├── 📁bin/
 ├── 📁obj/
+├── 📁Migrations/
 ├── 📁Properties/
 ├── 📁Controllers/
 │        ├── 📄TicketController.cs
@@ -75,6 +76,8 @@ docker-compose up -d
 │        └── 📄ApplicationDbContext.cs
 ├── 📁Entities/
 │        ├── 📁DTOs/
+│        │        ├── 📄LoginRequestDTO.cs
+│        │        ├── 📄LoginResponseDTO.cs
 │        │        └── 📄UserDTO.cs
 │        └── 📁Models/
 │                 ├── 📄Ticket.cs
@@ -84,7 +87,6 @@ docker-compose up -d
 │        ├── 📄IUserService.cs
 │        ├── 📄TicketService.cs
 │        └── 📄UserService.cs
-├── 📁Migrations/
 ├── 📄appsettings.Development.json
 ├── 📄appsettings.json
 ├── 📄launchSettings.json
