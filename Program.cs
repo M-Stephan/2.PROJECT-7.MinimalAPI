@@ -1,14 +1,51 @@
-﻿using Solution;
+﻿// using namespaces
+using Solution;
 using Solution.Controllers;
-using Scalar.AspNetCore;
 using Solution.Users;
 using Solution.Tickets;
 using Solution.Services;
-using Microsoft.EntityFrameworkCore;
 using Solution.Data;
+// Scalar
+using Scalar.AspNetCore;
+// EF Core
+using Microsoft.EntityFrameworkCore;
+// JWT
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
-// -- Build ASP.NET environnement --
+// -- Build ASP.NET environment --
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Authentication and JWT Bearer.
+
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+var secretKey = jwtSettings.GetValue<string>("SecretKey");
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidIssuer = jwtSettings.GetValue<string>("Issuer"),
+
+        ValidateAudience = true,
+        ValidAudience = jwtSettings.GetValue<string>("Audience"),
+
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey!)),
+
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero
+    };
+});
+
+// Add OpenAPI
 builder.Services.AddOpenApi();
 
 // Define context
@@ -27,6 +64,11 @@ builder.Services.AddScoped<ITicketService, TicketService>();
 // Builder
 var app = builder.Build();
 
+// JWT Auth
+app.UseAuthentication();
+app.UseAuthorization();
+
+// OpenAPI Map
 app.MapOpenApi();
 app.MapScalarApiReference();
 
@@ -59,22 +101,22 @@ using (var scope = app.Services.CreateScope())
         }
     }
 
-    // Seed users si la table Users est vide
+    // Seed users if Users table is empty
     if (!db.Users.Any())
     {
         db.Users.AddRange(
-            new User { FirstName = "John", LastName = "Doe", Email = "Johndoe@domain.be" },
-            new User { FirstName = "Hector", LastName = "Lastor", Email = "Hector@domain.be" },
-            new User { FirstName = "Alice", LastName = "Gretchen", Email = "alice@domain.be" },
-            new User { FirstName = "Sophie", LastName = "Clapton", Email = "sophie@domain.be" }
+            new User { FirstName = "John", LastName = "Doe", Email = "Johndoe@domain.be", PasswordHash = "jd123" },
+            new User { FirstName = "Hector", LastName = "Lastor", Email = "Hector@domain.be", PasswordHash = "hector123" },
+            new User { FirstName = "Alice", LastName = "Gretchen", Email = "alice@domain.be", PasswordHash = "alice123" },
+            new User { FirstName = "Sophie", LastName = "Clapton", Email = "sophie@domain.be", PasswordHash = "sophie123" }
         );
-        db.SaveChanges(); // sauvegarde pour générer les Ids
+        db.SaveChanges(); // save to generate IDs
     }
 
-    // Seed tickets si la table Tickets est vide
+    // Seed tickets if Tickets table is empty
     if (!db.Tickets.Any())
     {
-        // On récupère les vrais Id des utilisateurs
+        // Retrieve real User IDs
         var john = db.Users.First(u => u.FirstName == "John");
         var hector = db.Users.First(u => u.FirstName == "Hector");
         var alice = db.Users.First(u => u.FirstName == "Alice");

@@ -26,6 +26,10 @@ namespace Solution.Users
         [EmailAddress]
         public string Email { get; set; } = string.Empty;
 
+        // Password hashed
+        [Required]
+        public string PasswordHash { get; set; } = string.Empty;
+
         // List of all tickets of the User
         
         public List<Ticket>? Tickets { get; set; }
@@ -34,11 +38,12 @@ namespace Solution.Users
         public User() { }
 
         // Constructor
-        public User(string firstname, string lastname, string email)
+        public User(string firstname, string lastname, string email, string passwordHash)
         {
             FirstName = firstname;
             LastName = lastname;
             Email = email;
+            PasswordHash = passwordHash;
 
             Tickets = [];
         }

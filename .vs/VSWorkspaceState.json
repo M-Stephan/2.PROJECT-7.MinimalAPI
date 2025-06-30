@@ -1,13 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.github\\workflows",
     "\\Controllers",
     "\\Data",
     "\\Entities",
-    "\\Migrations",
+    "\\Entities\\DTOs",
+    "\\Entities\\Models",
     "\\Services"
   ],
-  "SelectedNode": "\\7.MinimalAPI.http",
+  "SelectedNode": "\\Controllers\\TicketController.cs",
   "PreviewInSolutionExplorer": false
 }

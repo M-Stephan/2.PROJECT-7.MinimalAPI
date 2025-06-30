@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Solution.Services;
 using Solution.Users;
+using Solution.DTOs;
+
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -18,7 +20,7 @@ namespace Solution.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetUsers()
         {
             var users = await _userService.GetUsers();
             return users.Any() ? Ok(users) : NotFound("No Users Found");
@@ -32,7 +34,7 @@ namespace Solution.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<User>> CreateUser(User user)
+        public async Task<ActionResult<User>> CreateUser([FromBody] User user)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
@@ -54,6 +56,29 @@ namespace Solution.Controllers
         {
             bool deleted = await _userService.DeleteUser(id);
             return deleted ? Ok($"User {id} deleted") : NotFound("User ID Not Found");
+        }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<LoginResponseDTO>> Login([FromBody] LoginRequestDTO loginRequest)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var user = await _userService.Authenticate(loginRequest.Email, loginRequest.Password);
+            if (user == null)
+                return Unauthorized("Invalid email or password");
+
+            var token = _userService.GenerateJwtToken(user);
+
+            var expiration = DateTime.UtcNow.AddHours(2);
+
+            var response = new LoginResponseDTO
+            {
+                Token = token,
+                Expiration = expiration
+            };
+
+            return Ok(response);
         }
     }
 }
