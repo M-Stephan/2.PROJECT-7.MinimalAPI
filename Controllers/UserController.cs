@@ -1,10 +1,14 @@
-using Microsoft.AspNetCore.Mvc;
+// Using Solutions
 using Solution.Services;
 using Solution.Users;
 using Solution.DTOs;
-
+// Using System for Tasks and lists
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
+// Using Microsoft for JWT Auth
+using Microsoft.AspNetCore.Identity.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Solution.Controllers
 {
@@ -19,6 +23,7 @@ namespace Solution.Controllers
             _userService = userService;
         }
 
+        // Route for get all users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserDTO>>> GetUsers()
         {
@@ -26,22 +31,15 @@ namespace Solution.Controllers
             return users.Any() ? Ok(users) : NotFound("No Users Found");
         }
 
+        // Route for get a user by ID
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<UserDTO>> GetUser(int id)
         {
             var user = await _userService.GetUser(id);
             return user is not null ? Ok(user) : NotFound("User ID Not Found");
         }
 
-        [HttpPost]
-        public async Task<ActionResult<User>> CreateUser([FromBody] User user)
-        {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
-            var created = await _userService.CreateUser(user);
-            return CreatedAtAction(nameof(GetUser), new { id = created.Id }, created);
-        }
-
+        // Route for update a user by ID
         [HttpPut("{id:int}")]
         public async Task<ActionResult<User>> UpdateUser(int id, User user)
         {
@@ -51,6 +49,7 @@ namespace Solution.Controllers
             return updated is not null ? Ok(updated) : NotFound("User ID Not Found");
         }
 
+        // Route for delete a user by ID
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
@@ -58,6 +57,7 @@ namespace Solution.Controllers
             return deleted ? Ok($"User {id} deleted") : NotFound("User ID Not Found");
         }
 
+        // Route for login with email & password
         [HttpPost("login")]
         public async Task<ActionResult<LoginResponseDTO>> Login([FromBody] LoginRequestDTO loginRequest)
         {
@@ -79,6 +79,17 @@ namespace Solution.Controllers
             };
 
             return Ok(response);
+        }
+
+
+        // Route for register a new user
+        [HttpPost("register")]
+        public async Task<ActionResult<UserDTO>> Register([FromBody] RegisterRequestDTO request)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            var created = await _userService.Register(request);
+
+            return CreatedAtAction(nameof(GetUser), new { id = created.Id }, created);
         }
     }
 }

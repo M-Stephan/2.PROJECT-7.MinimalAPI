@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Solution.Data;
 using Solution.Tickets;
+using Solution.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,38 +17,77 @@ namespace Solution.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<Ticket>> GetTickets()
+        public async Task<IEnumerable<TicketDTO>> GetTickets()
         {
-            return await _context.Tickets.ToListAsync();
+            var tickets = await _context.Tickets.ToListAsync();
+            var ticketDtos = tickets.Select(t => new TicketDTO
+            {
+                Id = t.Id,
+                Title = t.Title,
+                Description = t.Description,
+                Status = t.Status,
+                CreatedAt = t.CreatedAt
+            }).ToList();
+
+            return ticketDtos;
         }
 
-        public async Task<Ticket?> GetTicket(int id)
-        {
-            return await _context.Tickets.FindAsync(id);
-        }
 
-        public async Task<Ticket> CreateTicket(Ticket ticket)
-        {
-            ticket.Status = "Open";
-            ticket.CreatedAt = DateTime.Now;
-
-            _context.Tickets.Add(ticket);
-            await _context.SaveChangesAsync();
-
-            return ticket;
-        }
-
-        public async Task<Ticket?> UpdateTicket(int id, Ticket updatedTicket)
+        public async Task<TicketDTO?> GetTicket(int id)
         {
             var ticket = await _context.Tickets.FindAsync(id);
             if (ticket == null) return null;
 
-            ticket.Title = updatedTicket.Title;
-            ticket.Description = updatedTicket.Description;
-            ticket.Status = updatedTicket.Status;
+            return new TicketDTO
+            {
+                Id = ticket.Id,
+                Title = ticket.Title,
+                Description = ticket.Description,
+                Status = ticket.Status,
+                CreatedAt = ticket.CreatedAt
+            };
+        }
+
+        public async Task<TicketDTO> CreateTicket(TicketDTO ticketDto, int userId)
+        {
+            // Optionnel : vérifier que userId existe bien dans DB
+            var userExists = await _context.Users.AnyAsync(u => u.Id == userId);
+            if (!userExists) throw new Exception("User not found");
+
+            var ticket = new Ticket
+            {
+                Title = ticketDto.Title ?? string.Empty,
+                Description = ticketDto.Description ?? string.Empty,
+                Status = "Open",
+                CreatedAt = DateTime.Now,
+                UserId = userId
+            };
+
+            _context.Tickets.Add(ticket);
+            await _context.SaveChangesAsync();
+
+            ticketDto.Id = ticket.Id;
+            ticketDto.Status = ticket.Status;
+            ticketDto.CreatedAt = ticket.CreatedAt;
+
+            return ticketDto;
+        }
+
+        public async Task<TicketDTO?> UpdateTicket(int id, TicketDTO ticketDto)
+        {
+            var ticket = await _context.Tickets.FindAsync(id);
+            if (ticket == null) return null;
+
+            ticket.Title = ticketDto.Title ?? string.Empty;
+            ticket.Description = ticketDto.Description ?? string.Empty;
+            ticket.Status = ticketDto.Status ?? "Open";
 
             await _context.SaveChangesAsync();
-            return ticket;
+
+            ticketDto.Id = ticket.Id;
+            ticketDto.CreatedAt = ticket.CreatedAt;
+
+            return ticketDto;
         }
 
         public async Task<bool> DeleteTicket(int id)

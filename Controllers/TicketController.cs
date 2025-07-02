@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Solution.Services;
-using Solution.Tickets;
+using Solution.DTOs;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using System.Linq;
 using System.Security.Claims;
 
 namespace Solution.Controllers
@@ -20,7 +21,7 @@ namespace Solution.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
+        public async Task<ActionResult<IEnumerable<TicketDTO>>> GetTickets()
         {
             var tickets = await _ticketService.GetTickets();
             if (tickets == null || !tickets.Any()) return NotFound("No Tickets Found");
@@ -28,19 +29,18 @@ namespace Solution.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Ticket>> GetTicket(int id)
+        public async Task<ActionResult<TicketDTO>> GetTicket(int id)
         {
             var ticket = await _ticketService.GetTicket(id);
             if (ticket == null) return NotFound("Ticket Not Found");
             return Ok(ticket);
         }
 
-        // Secure this action - only authenticated users can create tickets
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult<Ticket>> CreateTicket(Ticket ticket)
+        public async Task<ActionResult<TicketDTO>> CreateTicket(TicketDTO ticketDto)
         {
-            if (string.IsNullOrWhiteSpace(ticket.Title) || string.IsNullOrWhiteSpace(ticket.Description))
+            if (string.IsNullOrWhiteSpace(ticketDto.Title) || string.IsNullOrWhiteSpace(ticketDto.Description))
                 return BadRequest("Title and Description are required");
 
             // Get userId from JWT claims
@@ -48,34 +48,27 @@ namespace Solution.Controllers
             if (userIdClaim == null)
                 return Unauthorized("User ID claim missing");
 
-            ticket.UserId = int.Parse(userIdClaim.Value);
+            if (!int.TryParse(userIdClaim.Value, out int userId))
+                return Unauthorized("User ID claim invalid");
 
-            var created = await _ticketService.CreateTicket(ticket);
-            return CreatedAtAction(nameof(GetTicket), new { id = created.Id }, created);
+            var createdTicket = await _ticketService.CreateTicket(ticketDto, userId);
+            return CreatedAtAction(nameof(GetTicket), new { id = createdTicket.Id }, createdTicket);
         }
 
-        // Secure update too
+
         [Authorize]
         [HttpPut("{id:int}")]
-        public async Task<ActionResult<Ticket>> UpdateTicket(int id, Ticket updatedTicket)
+        public async Task<ActionResult<TicketDTO>> UpdateTicket(int id, TicketDTO updatedTicketDto)
         {
-            if (string.IsNullOrWhiteSpace(updatedTicket.Title) || string.IsNullOrWhiteSpace(updatedTicket.Description))
+            if (string.IsNullOrWhiteSpace(updatedTicketDto.Title) || string.IsNullOrWhiteSpace(updatedTicketDto.Description))
                 return BadRequest("Title and Description are required");
 
-            // Optionally, you can ensure user can only update their own tickets
-            var userIdClaim = User.FindFirst("userId");
-            if (userIdClaim == null)
-                return Unauthorized("User ID claim missing");
+            var updatedTicket = await _ticketService.UpdateTicket(id, updatedTicketDto);
+            if (updatedTicket == null) return NotFound("Ticket Not Found");
 
-            updatedTicket.UserId = int.Parse(userIdClaim.Value);
-
-            var ticket = await _ticketService.UpdateTicket(id, updatedTicket);
-            if (ticket == null) return NotFound("Ticket Not Found");
-
-            return Ok(ticket);
+            return Ok(updatedTicket);
         }
 
-        // Secure delete too
         [Authorize]
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteTicket(int id)

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity.Data;
 using Solution.DTOs;
 using Solution.Users;
 using System.Collections.Generic;
@@ -9,10 +10,10 @@ namespace Solution.Services
     {
         Task<IEnumerable<UserDTO>> GetUsers();
         Task<UserDTO?> GetUser(int id);
-        Task<UserDTO> CreateUser(User user);
         Task<UserDTO?> UpdateUser(int id, User updatedUser);
         Task<bool> DeleteUser(int id);
         Task<User?> Authenticate(string email, string password);
         string GenerateJwtToken(User user);
+        Task<UserDTO> Register(RegisterRequestDTO request);
     }
 }

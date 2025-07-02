@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Solution.Tickets;
+using Solution.DTOs;
 
 namespace Solution.Services
 {
     public interface ITicketService
     {
-        Task<IEnumerable<Ticket>> GetTickets();
-        Task<Ticket?> GetTicket(int id);
-        Task<Ticket> CreateTicket(Ticket ticket);
-        Task<Ticket?> UpdateTicket(int id, Ticket ticket);
+        Task<IEnumerable<TicketDTO>> GetTickets();
+        Task<TicketDTO?> GetTicket(int id);
+        Task<TicketDTO> CreateTicket(TicketDTO ticketDto, int userId);
+        Task<TicketDTO?> UpdateTicket(int id, TicketDTO ticket);
         Task<bool> DeleteTicket(int id);
     }
 }
