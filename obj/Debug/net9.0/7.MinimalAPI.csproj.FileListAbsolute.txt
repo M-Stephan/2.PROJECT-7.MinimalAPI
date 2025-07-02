@@ -509,3 +509,8 @@ C:\Users\marti\Desktop\7.MinimalAPI\obj\Debug\net9.0\refint\7.MinimalAPI.dll
 C:\Users\marti\Desktop\7.MinimalAPI\obj\Debug\net9.0\7.MinimalAPI.pdb
 C:\Users\marti\Desktop\7.MinimalAPI\obj\Debug\net9.0\7.MinimalAPI.genruntimeconfig.cache
 C:\Users\marti\Desktop\7.MinimalAPI\obj\Debug\net9.0\ref\7.MinimalAPI.dll
+C:\Users\marti\Desktop\BeCode-Campus\2.PROJECTS\7.MinimalAPI\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\Users\marti\Desktop\BeCode-Campus\2.PROJECTS\7.MinimalAPI\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\marti\Desktop\BeCode-Campus\2.PROJECTS\7.MinimalAPI\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\marti\Desktop\BeCode-Campus\2.PROJECTS\7.MinimalAPI\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\marti\Desktop\BeCode-Campus\2.PROJECTS\7.MinimalAPI\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll

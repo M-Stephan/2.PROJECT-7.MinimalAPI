@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.csproj": {}
+    "C:\\Users\\marti\\Desktop\\BeCode-Campus\\2.PROJECTS\\7.MinimalAPI\\7.MinimalAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.csproj": {
+    "C:\\Users\\marti\\Desktop\\BeCode-Campus\\2.PROJECTS\\7.MinimalAPI\\7.MinimalAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.csproj",
+        "projectUniqueName": "C:\\Users\\marti\\Desktop\\BeCode-Campus\\2.PROJECTS\\7.MinimalAPI\\7.MinimalAPI.csproj",
         "projectName": "7.MinimalAPI",
-        "projectPath": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\7.MinimalAPI.csproj",
+        "projectPath": "C:\\Users\\marti\\Desktop\\BeCode-Campus\\2.PROJECTS\\7.MinimalAPI\\7.MinimalAPI.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marti\\Desktop\\7.MinimalAPI\\obj\\",
+        "outputPath": "C:\\Users\\marti\\Desktop\\BeCode-Campus\\2.PROJECTS\\7.MinimalAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[9.0.6, )"
@@ -85,7 +89,11 @@
             },
             "Scalar.AspNetCore": {
               "target": "Package",
-              "version": "[2.4.17, )"
+              "version": "[2.5.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.1, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",

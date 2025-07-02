@@ -12,8 +12,8 @@ using Solution.Data;
 namespace _7.MinimalAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250630140141_AddJwtMigration")]
-    partial class AddJwtMigration
+    [Migration("20250702092412_SwaggerJWTFixedMigration")]
+    partial class SwaggerJWTFixedMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

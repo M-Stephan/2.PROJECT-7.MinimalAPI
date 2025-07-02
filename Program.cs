@@ -7,18 +7,21 @@ using Solution.Services;
 using Solution.Data;
 // Scalar
 using Scalar.AspNetCore;
+using Microsoft.OpenApi.Models;
+
 // EF Core
 using Microsoft.EntityFrameworkCore;
 // JWT
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+// Encrypt password
+using BCrypt.Net;
 
 // -- Build ASP.NET environment --
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Authentication and JWT Bearer.
-
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var secretKey = jwtSettings.GetValue<string>("SecretKey");
 
@@ -45,8 +48,49 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Add OpenAPI
-builder.Services.AddOpenApi();
+// Configure Swagger / OpenAPI with JWT security
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Ticket API",
+        Version = "v1",
+        Description = "Api for create tickets with a login user",
+        Contact = new OpenApiContact
+        {
+            Name = "Support API",
+            Email = "ndc.dev.code@gmail.com",
+            Url = new Uri("https://github.com/M-Stephan")
+        }
+    });
+
+    // Add JWT Bearer auth in Swagger UI
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "JWT Authorization header using the Bearer scheme."
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[]{}
+        }
+    });
+});
 
 // Define context
 string? context = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -61,16 +105,44 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITicketService, TicketService>();
 
-// Builder
+// Build app
 var app = builder.Build();
 
-// JWT Auth
 app.UseAuthentication();
 app.UseAuthorization();
 
-// OpenAPI Map
-app.MapOpenApi();
-app.MapScalarApiReference();
+if (app.Environment.IsDevelopment())
+{
+    // Swagger endpoints (expose swagger json à cette URL)
+    app.UseSwagger(options =>
+    {
+        options.RouteTemplate = "swagger/{documentName}/swagger.json";
+    });
+
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ticket API V1");
+        c.RoutePrefix = "swagger"; // Swagger UI à /swagger
+    });
+
+    // Scalar API Reference configuré pour utiliser swagger.json exposé ci-dessus
+    app.MapScalarApiReference(options =>
+    {
+        options.WithOpenApiRoutePattern("/swagger/{documentName}/swagger.json");
+        options.AddPreferredSecuritySchemes("Bearer");
+        options.AddHttpAuthentication("Bearer", auth =>
+        {
+            auth.Token = string.Empty; // vide par défaut
+        });
+    });
+}
+else
+{
+    // En prod, tu peux décider ce que tu veux
+    app.MapScalarApiReference();
+}
+
+app.MapOpenApi(); // Si tu veux garder aussi cette ligne, elle est OK
 
 // -- Initialize DbContext and apply migrations --
 using (var scope = app.Services.CreateScope())
@@ -105,18 +177,17 @@ using (var scope = app.Services.CreateScope())
     if (!db.Users.Any())
     {
         db.Users.AddRange(
-            new User { FirstName = "John", LastName = "Doe", Email = "Johndoe@domain.be", PasswordHash = "jd123" },
-            new User { FirstName = "Hector", LastName = "Lastor", Email = "Hector@domain.be", PasswordHash = "hector123" },
-            new User { FirstName = "Alice", LastName = "Gretchen", Email = "alice@domain.be", PasswordHash = "alice123" },
-            new User { FirstName = "Sophie", LastName = "Clapton", Email = "sophie@domain.be", PasswordHash = "sophie123" }
+            new User { FirstName = "John", LastName = "Doe", Email = "Johndoe@domain.be", PasswordHash = BCrypt.Net.BCrypt.HashPassword("jd123") },
+            new User { FirstName = "Hector", LastName = "Lastor", Email = "Hector@domain.be", PasswordHash = BCrypt.Net.BCrypt.HashPassword("hector123") },
+            new User { FirstName = "Alice", LastName = "Gretchen", Email = "alice@domain.be", PasswordHash = BCrypt.Net.BCrypt.HashPassword("alice123") },
+            new User { FirstName = "Sophie", LastName = "Clapton", Email = "sophie@domain.be", PasswordHash = BCrypt.Net.BCrypt.HashPassword("sophie123") }
         );
-        db.SaveChanges(); // save to generate IDs
+        db.SaveChanges();
     }
 
     // Seed tickets if Tickets table is empty
     if (!db.Tickets.Any())
     {
-        // Retrieve real User IDs
         var john = db.Users.First(u => u.FirstName == "John");
         var hector = db.Users.First(u => u.FirstName == "Hector");
         var alice = db.Users.First(u => u.FirstName == "Alice");

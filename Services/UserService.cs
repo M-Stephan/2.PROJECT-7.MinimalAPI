@@ -14,6 +14,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+// Encrypt
+using BCrypt.Net;
 
 namespace Solution.Services
 {
@@ -68,22 +70,6 @@ namespace Solution.Services
             };
         }
 
-
-        public async Task<UserDTO> CreateUser(User user)
-        {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
-            return new UserDTO
-            {
-                Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
-                TicketTitles = new List<string>()
-            };
-        }
-
         public async Task<UserDTO?> UpdateUser(int id, User updatedUser)
         {
             var user = await _context.Users.FindAsync(id);
@@ -128,7 +114,7 @@ namespace Solution.Services
 
             if (user == null) return null;
 
-            if (user.PasswordHash != password) return null;
+            if (!BCrypt.Net.BCrypt.Verify(password, user.PasswordHash)) return null;
 
             return user;
         }
@@ -159,6 +145,36 @@ namespace Solution.Services
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+
+        public async Task<UserDTO> Register(RegisterRequestDTO request)
+        {
+            var existingEmail = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
+            if (existingEmail != null)
+            {
+                throw new ArgumentException("SCRIPT ERROR: User email already exist! Try with another email or login.");
+            }
+
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password);
+
+            var newUser = new User(
+                request.FirstName,
+                request.LastName,
+                request.Email,
+                hashedPassword
+            );
+
+            _context.Users.Add(newUser);
+            await _context.SaveChangesAsync();
+
+            return new UserDTO
+            {
+                Id = newUser.Id,
+                FirstName = newUser.FirstName,
+                LastName = newUser.LastName,
+                Email = newUser.Email
+            };
         }
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace _7.MinimalAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class AddJwtMigration : Migration
+    public partial class SwaggerJWTFixedMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
