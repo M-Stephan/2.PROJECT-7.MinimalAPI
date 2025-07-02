@@ -18,14 +18,59 @@
 - Clear code separation by namespace (Users, Tickets, Endpoints)
 - Optional: Simple data validation
 
-## 🧪 How to Test
+## 📁 Project Structure
+<details><summary>Watch Here</summary>
 
-You can use **Swagger** or a tool like **REST Client**, **Postman**, or **curl**.
+```plaintext
+7.MinimalAPI
+📁7.MinimalAPI
+├── 📁.github/workflows
+├── 📁bin/
+├── 📁obj/
+├── 📁Migrations/
+├── 📁Properties/
+├── 📁Controllers/
+│        ├── 📄TicketController.cs
+│        └── 📄UserController.cs
+├── 📁Data/
+│        └── 📄ApplicationDbContext.cs
+├── 📁Entities/
+│        ├── 📁DTOs/
+│        │        ├── 📄LoginRequestDTO.cs
+│        │        ├── 📄LoginResponseDTO.cs
+│        │        ├── 📄RegisterRequestDTO.cs
+│        │        ├── 📄TicketDTO.cs
+│        │        └── 📄UserDTO.cs
+│        └── 📁Models/
+│                 ├── 📄Ticket.cs
+│                 └── 📄User.cs
+├── 📁Services/
+│        ├── 📄ITicketService.cs
+│        ├── 📄IUserService.cs
+│        ├── 📄TicketService.cs
+│        └── 📄UserService.cs
+├── 📄appsettings.Development.json
+├── 📄appsettings.json
+├── 📄launchSettings.json
+├── 📄Program.cs
+├── 📄7.MinimalAPI.csproj
+├── 📄7.MinimalAPI.http
+├── 📄Dockerfile
+├── 📄docker-compose.yml
+└── 📄README.md
+```
+</details>
 
-Examples are provided in `requests.http` file.
+## 💬 Want to test the live API without downloads?
+- The API is running at:
+  - 🌐 Scalar UI: [→ Click Here ←](http://217.145.72.16:5000/scalar)
+  - 🌐 Swagger UI: [→ Click Here ←](http://217.145.72.16:5000/swagger/index.html)
+
+- You can register a user and login to get a token to test the API (token valid for 2 hours).
+- Once logged in, paste your token in the Bearer Token field to authenticate and use API.
 
 ## ⚙️ Setup and database
-
+<details><summary>Watch Here</summary>
 After cloning this repository, follow these steps to run the API properly:
 
 1. **Configure the database connection** in `appsettings.json` (or environment variables) under `"DefaultConnection"`:
@@ -52,76 +97,18 @@ After cloning this repository, follow these steps to run the API properly:
    dotnet ef database update
    ```
 
-5. Once running, use Swagger UI at `http://localhost:5000/swagger` (or `/scalar` if Scalar UI is enabled) to explore and test the endpoints.
-
+5. Install Docker Desktop and Setup [→ How to install ←](https://docs.docker.com/desktop/setup/install/windows-install/)
 
 6. Run the Docker environment:
-```bash
-docker-compose up -d
-```
----
+   ```bash
+   docker-compose up -d --build
+   ```
+</details>
 
-## 📂 Project Structure
-```plaintext
-📁7.MinimalAPI
-├── 📁.github/workflows
-├── 📁bin/
-├── 📁obj/
-├── 📁Migrations/
-├── 📁Properties/
-├── 📁Controllers/
-│        ├── 📄TicketController.cs
-│        └── 📄UserController.cs
-├── 📁Data/
-│        └── 📄ApplicationDbContext.cs
-├── 📁Entities/
-│        ├── 📁DTOs/
-│        │        ├── 📄LoginRequestDTO.cs
-│        │        ├── 📄LoginResponseDTO.cs
-│        │        └── 📄UserDTO.cs
-│        └── 📁Models/
-│                 ├── 📄Ticket.cs
-│                 └── 📄User.cs
-├── 📁Services/
-│        ├── 📄ITicketService.cs
-│        ├── 📄IUserService.cs
-│        ├── 📄TicketService.cs
-│        └── 📄UserService.cs
-├── 📄appsettings.Development.json
-├── 📄appsettings.json
-├── 📄launchSettings.json
-├── 📄Program.cs
-├── 📄7.MinimalAPI.csproj
-├── 📄7.MinimalAPI.http
-├── 📄Dockerfile
-├── 📄docker-compose.yml
-└── 📄README.md
-```
-
-- ✅ This will:
-  - Download the docker-compose.yml file from the GitHub repository
-  - Pull the required images from Docker Hub (API + SQL Server)
-  - Launch the containers in the background
-
+## 🧪 How to Test
 - 🔗 Once started, the API will be available at:
-  - `http://localhost:5000/users`
-  - `http://localhost:5000/tickets`
-  - `http://localhost:5000/user/4`
-  - `http://localhost:5000/ticket/2`
-
-- Scalar UI: `http://localhost:5000/scalar`
-
----
-
-## 💬 Want to test the live API?
-
-The API is running at:
-🌐 [→ Click Here ←](http://217.145.72.16:5000/scalar)
-- You can use this test account to log in and try the app:
-  - Email: `Johndoe@domain.be`
-  - Password: `jd123`
-
----
+  - Scalar UI: `http://localhost:5000/scalar`
+  - Swagger UI: `http://localhost:5000/swagger/index.html`
 
 ## Contact
 - Stephan .M : martin.stephan9218@gmail.com
