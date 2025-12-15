@@ -63,8 +63,8 @@
 
 ## 💬 Want to test the live API without downloads?
 - The API is running at:
-  - 🌐 Scalar UI: [→ Click Here ←](http://217.145.72.16:5000/scalar)
-  - 🌐 Swagger UI: [→ Click Here ←](http://217.145.72.16:5000/swagger/index.html)
+  - 🌐 Scalar UI: [→ Click Here ←](http://83.150.218.25:5000/scalar)
+  - 🌐 Swagger UI: [→ Click Here ←](http://83.150.218.25:5000/swagger/index.html)
 
 - You can register a user and login to get a token to test the API (token valid for 2 hours).
 - Once logged in, paste your token in the Bearer Token field to authenticate and use API.
